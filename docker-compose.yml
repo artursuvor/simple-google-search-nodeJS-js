@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    container_name: search-app
+    working_dir: /Interview
+    volumes:
+      - .:/Interview
+    ports:
+      - "3000:3000"
+    environment:
+      - API_KEY=${API_KEY}
+      - SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID}
+    command: node server.js
+volumes:
+  db_data:
+    driver: local
